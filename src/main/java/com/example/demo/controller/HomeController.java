@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.cjc.main.model.User;
-import com.cjc.main.service.HomeService;
+import com.example.demo.model1.Employee;
+import com.example.demo.service.HomeService;
 
 public class HomeController {
 	@Autowired
@@ -26,7 +26,7 @@ public class HomeController {
 		return "register";
 	}
 	@RequestMapping("/reg")
-	public String registerdata(@ModelAttribute("user") User u)
+	public String registerdata(@ModelAttribute("user") Employee u)
 	{
 		
 		hs.savedata(u);
@@ -40,7 +40,7 @@ public class HomeController {
 		System.out.println("Username is"+ uname);
 		System.out.println("Password is"+ pass);
 		
-		User u=hs.logincheck(uname,pass);
+		Employee u=hs.logincheck(uname,pass);
 		
 		if(u!=null)
 		{
@@ -72,8 +72,8 @@ public class HomeController {
 	@RequestMapping("/edit")
 	public String editpage(@RequestParam("empid") int empid,Model m)
 	{
-		User u=hs.editdata(empid);
-		m.addAttribute("data", e);
+		Employee u=hs.editdata(empid);
+		m.addAttribute("data", u);
 		
 		return "edit";
 	}

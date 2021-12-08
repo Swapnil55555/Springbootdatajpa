@@ -1,10 +1,9 @@
 package com.example.demo.repository;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cjc.main.model.User;
+import com.example.demo.model1.Employee;
 
 @Repository
 public interface HomeRepository extends CrudRepository<Employee, Integer> 

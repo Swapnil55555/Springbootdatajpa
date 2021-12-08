@@ -3,9 +3,9 @@ package com.example.demo.serviseimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import com.cjc.main.repository.HomeRepository;
-import com.cjc.main.service.HomeService;
+import com.example.demo.model1.Employee;
+import com.example.demo.repository.HomeRepository;
+import com.example.demo.service.HomeService;
 
 @Service
 public class HomeServiceImpl implements HomeService{
@@ -14,16 +14,16 @@ public class HomeServiceImpl implements HomeService{
 	HomeRepository hr;
 	
 	@Override
-	public void savedata(Employee e) {
+	public Employee savedata(Employee e) {
 
-       hr.save(e);
+       return hr.save(e);
        
  
 	}
 
 	@Override
 	public Employee logincheck(String uname, String pass) {
-		return hr.findAllByUnameAndPass(uname, pass);
+		return null;//hr.findAllByUnameAndPass(uname, pass);
 		 
 	}
 
@@ -47,3 +47,4 @@ public class HomeServiceImpl implements HomeService{
 		
 		return hr.findByEmpid(empid);
 	}
+}

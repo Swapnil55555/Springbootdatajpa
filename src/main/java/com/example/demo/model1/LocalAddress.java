@@ -1,5 +1,7 @@
 package com.example.demo.model1;
 
+import javax.validation.constraints.NotBlank;
+
 public class LocalAddress {
 @NotBlank(message="address can not be blank")
 private String addressno;
