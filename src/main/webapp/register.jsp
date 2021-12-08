@@ -16,7 +16,7 @@ Username<input type="text" name="uname">
 Password<input type="text" name="pass">
 Local AddressNo<input type="text" name="addressno">
 Local Area Name<input type="text" name="areaname">
-Local CityName<input type="text" name="areaname">
+Local CityName<input type="text" name="cityname">
 
 Permenent Address No<input type="text" name="cityname">
 Permenent Area Name<input type="text" name="areaname1">

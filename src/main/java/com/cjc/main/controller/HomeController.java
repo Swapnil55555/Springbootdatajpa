@@ -1,6 +1,7 @@
-package com.example.demo.controller;
+package com.cjc.main.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cjc.main.model.User;
 import com.cjc.main.service.HomeService;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
+@Controller
 public class HomeController {
+
 	@Autowired
 	HomeService hs;
 	
@@ -44,7 +48,7 @@ public class HomeController {
 		
 		if(u!=null)
 		{
-			     Iterable<Employee> list= hs.getAllData();
+			     Iterable<User> list= hs.getAllData();
 			     m.addAttribute("data",list);
 			     return "success";
 			     
@@ -58,34 +62,37 @@ public class HomeController {
 
 	
 	@RequestMapping("/delete")
-	public String deletedata(@ModelAttribute("employee") Employee e,Model m)
+	public String deletedata(@ModelAttribute("user") User u,Model m)
 	{
 		
 		
-		hs.deletedata(e);
-		Iterable<Employee> list= hs.getAllData();
+		hs.deletedata(u);
+		Iterable<User> list= hs.getAllData();
 	     m.addAttribute("data",list);
 		return "success";
 	}
 	
 	
 	@RequestMapping("/edit")
-	public String editpage(@RequestParam("empid") int empid,Model m)
+	public String editpage(@RequestParam("uid") int uid,Model m)
 	{
-		User u=hs.editdata(empid);
-		m.addAttribute("data", e);
+		User u=hs.editdata(uid);
+		m.addAttribute("data", u);
 		
 		return "edit";
 	}
 
 	@RequestMapping("/update")
-	public String updatedata(@ModelAttribute("user") Employee e,Model m)
+	public String updatedata(@ModelAttribute("user") User u,Model m)
 	{
-		hs.savedata(e);
-		Iterable<Employee> list= hs.getAllData();
+		hs.savedata(u);
+		Iterable<User> list= hs.getAllData();
 	     m.addAttribute("data",list);
 		return "success";
 		
 		
 	}
+	
+	
 }
+
